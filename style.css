@@ -13,10 +13,6 @@
     --padding-min: 4px;
 }
 
-a:not(.readmore) {
-    text-decoration: none;
-}
-
 html{
     background-color: var(--background);
     width: 100%;
@@ -28,25 +24,59 @@ html{
 body{
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     min-height: 100vh;
 }
 
-#container{
+#grid-container{
     display: grid;
     grid-gap: 1.5rem;
-    grid-template-rows:    1fr 1fr 1fr 1fr 1fr;
+    padding: calc(var(--padding) * 2);
+    grid-template-rows:   1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-                        "head head head head"
                         "card1 card2 card3 card4"
                         "card5 card6 card7 card8"
                         "card9 card10 card11 card12"
-                        "foot foot foot foot"
     ;
 }
 
-#header{ grid-area: head; }
+#header{
+    background: var(--icon-color);
+    background: var(--card-background);
+    padding: var(--padding);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-left, #nav-right{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img{
+    height: 32px;
+}
+
+#nav-right a{
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding: var(--padding);
+}
+
+#nav-right a:link, #nav-right a:visited{
+    color: var(--icon-color);
+}
+
+#nav-right a:hover, #nav-right a:active{
+    color: var(--icon-color-light);
+}
+
 #card1{ grid-area: card1; }
 #card2{ grid-area: card2; }
 #card3{ grid-area: card3; }
@@ -59,4 +89,61 @@ body{
 #card10{ grid-area: card10; }
 #card11{ grid-area: card11; }
 #card12{ grid-area: card12; }
-#footer{ grid-area: foot; }
+
+#footer{
+    background: var(--icon-color);
+    background: var(--card-background);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding);
+}
+
+@media screen and (max-width: 1678px) {
+    #grid-container {
+        grid-template-rows:   1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+                            "card1 card2 card3"
+                            "card4 card5 card6"
+                            "card7 card8 card9"
+                            "card10 card11 card12"
+        ;
+    }
+  }
+  @media screen and (max-width: 1262px) {
+    #grid-container {
+        grid-template-rows:   1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+                            "card1 card2"
+                            "card3 card4"
+                            "card5 card6"
+                            "card7 card8"
+                            "card9 card10"
+                            "card11 card12"
+        ;
+    }
+  }
+  @media screen and (max-width: 846px) {
+    #grid-container {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                            "card1"
+                            "card2"
+                            "card3"
+                            "card4"
+                            "card5"
+                            "card6"
+                            "card7"
+                            "card8"
+                            "card9"
+                            "card10"
+                            "card11"
+                            "card12"
+        ;
+    }
+  }
