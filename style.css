@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap');
 
+@font-face {
+    font-family: "logo-font";
+    font-weight: bold;
+    src: url("logo-font.otf") format("opentype");
+}
+
 :root{
     --background: #2D3142;
     --icon-color: #4F5D75;
@@ -57,10 +63,7 @@ nav{
 #nav-left, #nav-right{
     display: flex;
     justify-content: space-between;
-}
-
-nav img{
-    height: 32px;
+    align-items: center;
 }
 
 #nav-right a{
@@ -69,12 +72,99 @@ nav img{
     padding: var(--padding);
 }
 
+#nav-right i{
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
 #nav-right a:link, #nav-right a:visited{
     color: var(--icon-color);
 }
 
 #nav-right a:hover, #nav-right a:active{
     color: var(--icon-color-light);
+}
+
+.logo{
+    font-family: "logo-font", cursive, serif, sans-serif;
+    font-size: 4.8rem;
+    padding: var(--padding);
+    color: var(--background);
+}
+
+#hero{
+    position: relative;
+}
+
+.hero-img{
+    width: 100%;
+    max-height: 512px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.overlay{
+        /* Position */
+        left: 0;
+        position: absolute;
+        top: 0;
+    
+        /* Take full size */
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        padding-bottom: 2.25px;
+    
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+}
+
+.overlay-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+}
+
+.overlay-icon-left, .overlay-icon-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.overlay-icon-left{
+    border-radius: 8px 0px 0px 8px;
+}
+
+.overlay-icon-right{
+    border-radius: 0px 8px 8px 0px;
+}
+
+i.overlay-icon{
+    display: flex;
+    align-items: center;
+    font-size: 8rem;
+    color: var(--icon-color);
+    height: 100%;
+    font-size: 8rem;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+i.overlay-icon:hover{
+    color: var(--icon-color-light);
+}
+
+i.bi-caret-left-fill{
+    border-radius: 8px 0px 0px 8px;
+}
+
+i.bi-caret-right-fill{
+    border-radius: 0px 8px 8px 0px;
 }
 
 #card1{ grid-area: card1; }
@@ -99,6 +189,13 @@ nav img{
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
+}
+
+
+/* Media queries */
+
+.mobile{
+    display: none;
 }
 
 @media screen and (max-width: 1678px) {
@@ -146,4 +243,8 @@ nav img{
                             "card12"
         ;
     }
+
+    .desktop{ display: none;}
+    .mobile{ display: inherit;}
+
   }
